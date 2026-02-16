@@ -1,0 +1,17 @@
+extends common/layout
+
+block layout-content 
+  .main-content 
+    h1.page-title Movies Database
+    each movie in movies 
+      div 
+        h2 #{movie.name}
+        div
+          p Release Date: #{movie.rating}, Rating: #{movie.year}
+        div
+          form(method="get", action="/update")
+            input(type="hidden", name="movieId", value=movie._id)
+            button(type="submit") Change Rating to "R"
+    br
+    form(method="get", action="/delete")
+      button(type="submit") Remove All Rated "R" Movies
