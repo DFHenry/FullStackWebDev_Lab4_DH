@@ -1,0 +1,13 @@
+extends common/layout
+
+block layout-content
+    div.update-content 
+    h1 Update Rating For #{editMovie.name} To "R"
+    p Current Rating: #{editMovie.rating}
+    div
+        form(method="post", action="/update/submit")
+            input(type="hidden", name="movieId", value=editMovie._id)
+            input(type="hidden", name="name", value=editMovie.name)
+            input(type="hidden", name="year", value=editMovie.year)
+            input(type="hidden", name="rating", value="R")
+            button(type="submit") Update Rating
